@@ -89,8 +89,8 @@ from pydantic import BaseModel
 class QuestionRequest(BaseModel):
     contents: list
 
-GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyCNng2kz2XK4gy7_33GYccdtBDKl7IbGuc"
-API_KEY = "AIzaSyCNng2kz2XK4gy7_33GYccdtBDKl7IbGuc"
+GEMINI_API_URL = "your_url"
+API_KEY = "your_key"
 
 @app.post("/generate_questions/")
 async def generate_questions(request: QuestionRequest):
@@ -104,7 +104,7 @@ async def generate_questions(request: QuestionRequest):
     }
 
     # Send the request to the Gemini API
-    response = requests.post('https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyCNng2kz2XK4gy7_33GYccdtBDKl7IbGuc', headers=headers, json=payload)
+    response = requests.post('your_url?=your_key', headers=headers, json=payload)
 
     if response.status_code == 200:
         questions = response.json()
