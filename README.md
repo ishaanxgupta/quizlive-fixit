@@ -1,3 +1,6 @@
+https://quizlive-fixit.vercel.app/create-quiz - for quiz creation
+https://quizlive-fixit.vercel.app/join-quiz - for joining quiz
+
 Live Quiz Platform
 This project is a real-time quiz platform implemented using React.js for the frontend and FastAPI for the backend. Firebase is used for user authentication (Google Sign-In).
 
