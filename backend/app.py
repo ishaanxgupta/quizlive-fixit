@@ -5,6 +5,7 @@ from typing import List
 import random
 import string
 import requests
+from pydantic import BaseModel
 
 app = FastAPI()
 
@@ -82,9 +83,6 @@ async def start_quiz(room_data: RoomID):
     return {"status": "Quiz broadcasted"}
 
 
-import requests
-from pydantic import BaseModel
-
 # Define the expected structure for the request
 class QuestionRequest(BaseModel):
     contents: list
@@ -104,7 +102,7 @@ async def generate_questions(request: QuestionRequest):
     }
 
     # Send the request to the Gemini API
-    response = requests.post('your_url?=your_key', headers=headers, json=payload)
+    response = requests.post('https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyCNng2kz2XK4gy7_33GYccdtBDKl7IbGuc', headers=headers, json=payload)
 
     if response.status_code == 200:
         questions = response.json()
